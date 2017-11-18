@@ -11,6 +11,7 @@ import Foundation
 #endif
 
 @objc(FKFlag)
+@objcMembers
 public class Flag: NSObject {
     /**
      Country code of the flag
@@ -66,7 +67,7 @@ public class Flag: NSObject {
      Returns a flag if the country code is supported, otherwise it returns nil
      */
     public init?(countryCode: String) {
-        guard let image = FlagKit.assetBundle.image(forResource: countryCode) else {
+        guard let image = FlagKit.assetBundle.image(forResource: NSImage.Name(countryCode)) else {
             return nil
         }
         
